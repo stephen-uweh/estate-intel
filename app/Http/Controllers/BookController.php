@@ -60,11 +60,14 @@ class BookController extends Controller
         }
 
         $data = $this->book->create($request->all());
+        $res = [
+            'book' => $data
+        ];
         return response()->json([
             "status_code" => 201,
             "status" => "success",
-            "data" => $data,
-        ]);
+            "data" => $res,
+        ], 201);
         
     }
 
@@ -88,7 +91,7 @@ class BookController extends Controller
             "status" => "success",
             "message" => 'The book '.$book['name'].' was deleted successfully',
             "data" => []
-        ]);
+        ], 204);
         
     }
 
@@ -113,7 +116,7 @@ class BookController extends Controller
                 'status_code' => $req->status(),
                 'status' => 'success',
                 'data' => [$data]
-            ]);
+            ], 200);
         }
 
         if(!$res){
@@ -121,7 +124,7 @@ class BookController extends Controller
                 'status_code' => 404,
                 'status' => 'not found',
                 'data' => []
-            ]);
+            ], 404);
         }
         
     }
