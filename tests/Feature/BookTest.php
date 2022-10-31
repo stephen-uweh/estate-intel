@@ -47,7 +47,7 @@ class BookTest extends TestCase
     }
 
     public function test_edit(){
-        $id = 5;
+        $id = 8;
         $payload = [
             "name" => "My Fourth Book",
             "country" => "Germany",
@@ -59,9 +59,18 @@ class BookTest extends TestCase
     }
 
     public function test_delete(){
-        $id = 6;
+        $id = 7;
         $response = $this->delete('/api/v1/books/'.$id);
 
         $response->assertStatus(204);
+    }
+
+
+    public function test_external(){
+        $name = "A Game of Thrones";
+
+        $response = $this->get('/api/v1/external-books?name='.$name);
+
+        $response->assertStatus(200);
     }
 }
