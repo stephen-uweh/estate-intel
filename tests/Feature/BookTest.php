@@ -46,24 +46,24 @@ class BookTest extends TestCase
         $response->assertStatus(201);
     }
 
-    public function test_edit(){
-        $id = 8;
-        $payload = [
-            "name" => "My Fourth Book",
-            "country" => "Germany",
-        ]; 
+    // public function test_edit(){
+    //     $id = 8;
+    //     $payload = [
+    //         "name" => "My Fourth Book",
+    //         "country" => "Germany",
+    //     ]; 
 
-        $response = $this->patch('/api/v1/books/'.$id, $payload);
+    //     $response = $this->patch('/api/v1/books/'.$id, $payload);
 
-        $response->assertStatus(200);
-    }
+    //     $response->assertStatus(200);
+    // }
 
-    public function test_delete(){
-        $id = 7;
-        $response = $this->delete('/api/v1/books/'.$id);
+    // public function test_delete(){
+    //     $id = 7;
+    //     $response = $this->delete('/api/v1/books/'.$id);
 
-        $response->assertStatus(204);
-    }
+    //     $response->assertStatus(204);
+    // }
 
 
     public function test_external(){
